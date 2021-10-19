@@ -1,29 +1,51 @@
-<section class="design">
+<h1 class="heading">Reactive form</h1>
 
-  <form>
-    <div>
-     <label>Enter name:</label>
-       <input type="text" name="name" placeholder="Enter a valid name">
+<section class="card">
+
+  <form [formGroup]="exform">
+    
+
+    <div class="form-group">
+<!-- Name -->
+     <label class="col-form-label">Enter name:</label>
+
+     <br>
+       <input type="text" formControlName="name" class="form-control" placeholder="Enter name:">
+       
+       <small *ngIf="name.invalid && name.touched" class="text-danger">Enter a valid name</small>
   </div> 
-   
-  <div>
-    <label>Enter Email:</label>
-      <input type="text" name="email" placeholder="Enter a valid email">
+   <br>
+   <!-- Email -->
+  <div class="form-group">
+    <label class="col-form-label">Enter Email:</label>
+    <br>
+      <input type="text" formControlName="email" class="form-control">
+      <small *ngIf="exform.get('email').invalid && exform.get('email').touched" class="text-danger">Enter a valid E-mail </small>
  </div> 
-
- <div>
-  <label>Enter Phone number:</label>
-    <input type="text" name="number" placeholder="Enter a valid number">
+ <br>
+<!-- Phone number -->
+ <div class="form-group">
+  <label class="col-form-label">Enter Phone number:</label>
+  <br>
+    <input type="text" formControlName="number" class="form-control">
+    <small *ngIf="exform.get('number').invalid && exform.get('number').touched" class="text-danger">Must enter numbers(Minimum 10 numbers)</small>
+    
 </div> 
-<div class="message">
-  <label>Enter Message</label>
-    <input type="text" name="name" placeholder="Type your feedback here">
-</div> 
+<br>
+  <!-- Feedback -->
+<div class="form-group">
+  <label class="col-form-label">Enter Message</label>
+  <br>
+  <textarea formControlName="message" class="form-control" placeholder="Type your feedbacks" class="message"></textarea>
+  <br>
+    <small *ngIf="exform.get('message').invalid && exform.get('message').touched" class="text-danger">Must enter your feedbacks(Min 10 characters)</small>
 
 
-  
 
+</div>
+<br>
 
+<button (click)="submit()" [disabled]="exform.invalid" class="but btn btn-primary">Submit</button>
 
 
   </form>

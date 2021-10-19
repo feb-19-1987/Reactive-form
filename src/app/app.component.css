@@ -1,4 +1,30 @@
-.design{
-    background-color: rgb(207, 143, 143);
-    
+.heading{
+    text-align: center;
+    background-color: cadetblue;
+}
+.card{
+    background-color:rgb(235, 227, 227);
+    border-radius:6px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.2);
+    width:50%;
+    position :relative;
+    right:-225px;
+}
+
+.message{
+     width:65%;
+     height:125px;
+}
+
+.but{
+    align-content: center;
+    position: relative;
+    right:-225px;
+}
+.form-control.ng-touched.ng-invalid{
+    border:1px solid red;
+}
+.form-control.ng-touched.ng-valid{
+    border:1px solid green;
+
 }
